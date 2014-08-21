@@ -3,6 +3,7 @@ var solved = [];
 var started = false;
 var interval;
 var moves = 0;
+var tries = 1;
 
 function createDeck(list){
   for (i = 1; i <= 52; i++){
@@ -41,16 +42,17 @@ function bogo(){
   else{
     shuffle(deck);
     displayDeck();
+    $('#tries').text('Bogo Tries: '+tries++)
   }
 }
 
 function swap(a, b){
-  // $('.card-container img:nth-child(' + a + ')').fadeOut(20);
-  // $('.card-container img:nth-child(' + b + ')').fadeOut(20, function(){
+  $('.card-container img:nth-child(' + a + ')').fadeOut(1);
+  $('.card-container img:nth-child(' + b + ')').fadeOut(1, function(){
     $('.card-container img:nth-child(' + a + ')').after($('.card-container img:nth-child(' + b + ')'));
-  // })
-  // $('.card-container img:nth-child(' + a + ')').fadeIn(20);
-  // $('.card-container img:nth-child(' + b + ')').fadeIn(20);
+  })
+  $('.card-container img:nth-child(' + a + ')').fadeIn(1);
+  $('.card-container img:nth-child(' + b + ')').fadeIn(1);
 }
 
 function insertion(){
