@@ -1,0 +1,39 @@
+.container {
+  height: 282px;
+  width: 1000px;
+  border: 1px solid black;
+  margin: auto
+}
+
+.card-container {
+  width: 720px;
+  border: 1px solid red;
+  float:right;
+}
+
+.card {
+  margin: 1px;
+  float: left;
+}
+
+.button {
+  float: left;
+  height: 141px;
+  width: 275px;
+  padding:0;
+  border:0;
+  background-color: #D00;
+  font-size: 30px;
+  font-weight: bold;
+  color: black;
+}
+
+.button:hover{
+  background-color: black;
+  color:#D00;
+}
+
+html {
+  font-family: Arial;
+  text-align: center;
+}
