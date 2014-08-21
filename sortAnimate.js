@@ -2,7 +2,7 @@ var deck=[]
 var solved=[]
 var started=false
 var interval
-var tries=0
+var moves=0
 
 function createDeck(list){
   for (i=1; i<=52; i++){
@@ -27,7 +27,7 @@ function shuffle(array){
 function displayDeck(){
   $('.container .card-container').html('')
   for(var i=0; i<deck.length; i++){
-    $('.container .card-container').append('<img src="cardPictures/'+deck[i]+'.gif" id="'+deck[i]+'" class="card">')
+    $('.container .card-container').append('<img src="cardPictures/'+deck[i]+'.gif" id="'+deck[i]+'" value="'+i+'" class="card">')
   }
 }
 shuffle(deck)
@@ -41,24 +41,22 @@ function bogo(){
   else{
     shuffle(deck)
     displayDeck()
-    $('#tries').html('Tries: '+tries++)
   }
 }
 
 function insertion(){
-  for(var pivot=0; pivot<deck.length; pivot++){
-    // setTimeout(function(){
-    var v=deck[pivot]
-    for(var j=pivot-1; j>=0 && deck[j] > v; j--){
-      $('#'+deck[j+1]).after($('#'+deck[j]))
-      deck[j+1]=deck[j]
-      deck[j]=v
-      console.log(deck)
+  moves=0
+  for (pivot=2; pivot<=52; pivot++){
+    change=0
+      while(parseInt($('.card-container img:nth-child('+(pivot-change)+')').attr('id'))<parseInt($('.card-container img:nth-child('+(pivot-change-1)+')'
+        ).attr('id'))){
+          $('.card-container img:nth-child('+(pivot-change)+')').delay(50).after($('.card-container img:nth-child('+(pivot-change-1)+')'))
+          change++
+          moves++
+          $('#moves').html('Moves: '+moves)
+        }
+      }
     }
-    deck[j+1]=v
-    // }, 1000)
-  }
-}
 
 $('#bogo').click(function(){
   if(started){
