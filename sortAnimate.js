@@ -46,16 +46,17 @@ function bogo(){
 }
 
 function insertion(){
-  for(pivot=0; pivot<deck.length; pivot++){
-    setTimeout(function(){
-    v=deck[pivot]
-    for(j=pivot-1; j>=0 && deck[j] > v; j--){
+  for(var pivot=0; pivot<deck.length; pivot++){
+    // setTimeout(function(){
+    var v=deck[pivot]
+    for(var j=pivot-1; j>=0 && deck[j] > v; j--){
       $('#'+deck[j+1]).after($('#'+deck[j]))
       deck[j+1]=deck[j]
       deck[j]=v
       console.log(deck)
+    }
     deck[j+1]=v
-    }, 1000)
+    // }, 1000)
   }
 }
 
